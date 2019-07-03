@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: spring-boot-monog
+logging:
+  file: app.log
+
+server:
+  port: 8080
+
+#spring.data.mongodb.uri: mongodb://idgst-mongo:27017/digest

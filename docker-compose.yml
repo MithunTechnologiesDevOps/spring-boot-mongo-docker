@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  springboot:
+    image: dockerhandson/spring-boot-mongo:latest
+    restart: always
+    container_name: springboot
+    ports:
+      - 8080:8080
+    working_dir: /opt/app
+    depends_on:
+      - mongo
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure   
+
+  mongo:
+    image: mongo
+    container_name: springboot-mongo
+#    ports:  # for demo/debug purpose only
+#      - 27018:27017
+    volumes:
+      - data:/data/db
+      - data-bkp:/data/bkp
+    restart: always
+    
+volumes:
+  data:
+    external: true
+  data-bkp:
+    external: true
