@@ -30,6 +30,4 @@ services:
     
 volumes:
   data:
-    external: true
   data-bkp:
-    external: true
