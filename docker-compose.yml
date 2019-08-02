@@ -30,4 +30,11 @@ services:
     
 volumes:
   data:
+    #external: true
   data-bkp:
+    #external: true
+    
+networks:
+  default:
+    external:
+      name: customoverlay
