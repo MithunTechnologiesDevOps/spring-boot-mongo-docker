@@ -12,9 +12,9 @@ spec:
       labels:
         name: springboot
     spec:
-      containers:
       imagePullSecrets:
       - name: dockerreposecret
+      containers:
       - image: 172.31.43.54:8083/spring-boot-mongo
         name: springboot
         ports:
