@@ -1,10 +1,13 @@
 spring:
-  application:
-    name: spring-boot-monog
-logging:
-  file: app.log
+  data:
+    mongodb:
+      host: ${MONGO_DB_HOSTNAME}
+      port: 27017
+      username: ${MONGO_DB_USERNAME}
+      password: ${MONGO_DB_PASSWORD}
+      database: users
+      authentication-database: admin
+     
 
 server:
   port: 8080
-
-#spring.data.mongodb.uri: mongodb://idgst-mongo:27017/digest

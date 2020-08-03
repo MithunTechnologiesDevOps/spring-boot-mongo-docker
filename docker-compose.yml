@@ -5,8 +5,12 @@ services:
     image: dockerhandson/spring-boot-mongo:latest
     restart: always # This will be ignored if we deploy in docker swarm
     container_name: springboot
+    environment:
+    - MONGO_DB_HOSTNAME=mongo
+    - MONGO_DB_USERNAME=root
+    - MONGO_DB_PASSWORD=admin123
     ports:
-      - 9090:8080
+      - 8080:8080
     working_dir: /opt/app
     depends_on:
       - mongo
@@ -23,17 +27,15 @@ services:
   mongo:
     image: mongo
     container_name: springboot-mongo
-#    ports:  # for demo/debug purpose only
-#      - 27018:27017
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=root
+    - MONGO_INITDB_ROOT_PASSWORD=admin123
     volumes:
       - data:/data/db
-      - data-bkp:/data/bkp
     restart: always
     
 volumes:
   data:
-    #external: true
-  data-bkp:
     #external: true
     
 networks:

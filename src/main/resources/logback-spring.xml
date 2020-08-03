@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<springProperty scope="context" name="application_name"
+		source="spring.application.name" />
+
+	<property name="CONSOLE_LOG_PATTERN"
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS}%d{Z}|severity=%level|pid=${PID:-}|service=${application_name}|trace=%X{X-B3-TraceId}|span=%X{X-B3-SpanId}|thread=%t|class=%c{40}|message=%replace(%msg){'\n', '\t'}%n" />
+
+	<appender name="jsonConsoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+		</layout>
+	</appender>
+
+	<appender name="Async-Console-Appender"
+		class="ch.qos.logback.classic.AsyncAppender">
+
+		<queueSize>512</queueSize>
+		<appender-ref ref="jsonConsoleAppender" />
+
+	</appender>
+
+	<logger name="com.example" level="DEBUG" additivity="false">
+		<appender-ref ref="Async-Console-Appender" />
+	</logger>
+	        
+	<logger name="org.springframework" level="WARN"
+		additivity="false">
+		<appender-ref ref="Async-Console-Appender" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="Async-Console-Appender" />
+	</root>
+
+
+</configuration>
