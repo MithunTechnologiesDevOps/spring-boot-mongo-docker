@@ -1,13 +1,6 @@
 spring:
   data:
     mongodb:
-      host: ${MONGO_DB_HOSTNAME}
-      port: 27017
-      username: ${MONGO_DB_USERNAME}
-      password: ${MONGO_DB_PASSWORD}
-      database: users
-      authentication-database: admin
-     
-
+      uri: mongodb://mongo:27017   
 server:
   port: 8080
