@@ -83,6 +83,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+	    <repository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>http://172.31.47.158:8081/repository/Vishnu-releases/</url>
+	    </repository>
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Vishnuvardhan2637 Snapshot Nexus Repository </name>
+	      <url>http://172.31.47.158:8081/repository/Vishnu-Snapshots/</url>
+	    </snapshotRepository>
+	</distributionManagement
 	<build>
 		<plugins>
 			<plugin>
