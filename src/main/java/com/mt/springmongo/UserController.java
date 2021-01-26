@@ -3,7 +3,6 @@ package com.mt.springmongo;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +26,7 @@ public class UserController {
                        @RequestParam("lastName") String lastName,
                        @RequestParam("email") String email) {
 
-    	logger.info("Creating user name: "+firstName);
+    	logger.info("Creating user name: {}", firstName);
         User user = new User(firstName, lastName, email);
         userRepository.save(user);
 
