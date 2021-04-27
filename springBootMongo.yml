@@ -23,7 +23,7 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: dockerhandson/spring-boot-mongo
+      - image: swaroopknvj/spring-boot-mongo
         name: springboot
         ports:
         - containerPort: 8080  
