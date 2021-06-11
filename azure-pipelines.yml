@@ -97,3 +97,7 @@ spec:
       targetPort: 27017
   selector:
     name: mongo
+- task: CopyPublishBuildArtifacts@1
+  inputs:
+    ArtifactName: 
+    ArtifactType: 'Container'
