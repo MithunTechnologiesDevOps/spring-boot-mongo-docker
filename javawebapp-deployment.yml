@@ -18,7 +18,7 @@ spec:
       containers:
       - image: 007892345/testapp:BUILD_NUMBER
         name: javawebapp
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - name: javawebapp
           containerPort: 8080  
