@@ -27,8 +27,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: javawebapp
   name: javawebapp
 spec:
   selector:
