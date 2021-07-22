@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="text-center">Spring Boot + MongoDB DemoApp</h1>
+		<h1 class="text-center">Spring Boot + MongoDB Demo</h1>
 		<div class="col-md-6">
 			<form name="saveUser" action="/save" method="post"
 				class="form-horizontal">
@@ -48,24 +48,5 @@
 
 
 		
-
-	<script>
-		$.ajax({
-			url : "/api/users",
-
-			success : function(response) {
-				$.each(response, function(i, item) {
-					var row = $("<tr />");
-					$("#usersTable").append(row);
-
-					row.append($("<td>" + item.id + "</td>"));
-					row.append($("<td>" + item.firstName + "</td>"));
-					row.append($("<td>" + item.lastName + "</td>"));
-					row.append($("<td>" + item.email + "</td>"));
-
-				});
-			}
-		})
-	</script>
 </body>
 </html>
