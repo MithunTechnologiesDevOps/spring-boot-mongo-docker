@@ -1,6 +1,8 @@
 spring:
   data:
     mongodb:
+      # In Case of mongodb Repel Set
+      #uri: mongodb://${MONGO_DB_HOSTNAME}:${MONGO_DB_PASSWORD}@mongod-0.mongodb:27017,mongod-1.mongodb:27017,mongod-2.mongodb:27017/users
       host: ${MONGO_DB_HOSTNAME}
       port: 27017
       username: ${MONGO_DB_USERNAME}
