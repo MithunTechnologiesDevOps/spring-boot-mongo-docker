@@ -1,0 +1,24 @@
+plugin: aws_ec2
+
+aws_access_key: AKIA5VC5BQOXNHETWIJV
+aws_secret_key: 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
+
+regions:
+ - ap-south-1
+
+filters:
+  instance-state-name: running
+  tag:Env: Prod
+# tag:env = test
+keyed_groups:
+ - key: tags.Role
+ - key: tags.Name
+   prefix: ""
+   seperator: ""
+
+hostnames:
+ - private-ip-address
+
+compose:
+  ansible_host: private-ip-address
+
