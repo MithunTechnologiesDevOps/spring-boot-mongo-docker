@@ -1,0 +1,30 @@
+version: "3"
+services:
+  springapp:
+    image: nickregistry/springboot:{{buildnumber}}
+    ports:
+    - 8080:8080
+    environment:
+    - MONGO_DB_HOSTNAME=mongodb
+    - MONGO_DB_USERNAME=nikil
+    - MONGO_DB_PASSWORD=Nikhil@069
+    networks:
+    - springoverlay
+    depends_on:
+    - mongodb
+    deploy:
+      replicas: 3
+  mongodb:
+    image: mongo
+    volumes:
+    - mongovol:/data/db
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=nikil
+    - MONGO_INITDB_ROOT_PASSWORD=Nikhil@069
+    networks:
+    - springoverlay
+volumes:
+  mongovol:
+networks:
+  springoverlay:
+
