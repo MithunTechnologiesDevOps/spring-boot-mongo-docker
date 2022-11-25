@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-# Required for starting application up.
+ Required for starting application up.
 RUN apk update && apk add /bin/sh
 
 RUN mkdir -p /opt/app
