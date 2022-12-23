@@ -9,6 +9,3 @@ spring:
       password: ${MONGO_DB_PASSWORD}
       database: users
       authentication-database: admin
-
-server:
-  port: 8080
