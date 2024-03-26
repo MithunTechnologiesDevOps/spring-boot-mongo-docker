@@ -1,0 +1,27 @@
+services:
+  springservice:
+    image: pattanimrankhan/springapp:latest
+    container_name: springboot
+    ports:
+    - 8080:8080
+    env_file:
+    - ~/spring-boot-mongo-docker/spring_var.env
+    networks:
+    - springappmongo
+
+  mongodb:
+    image: pattanimrankhan/mongo:latest
+    container_name: mongo
+    env_file:
+    - ~/spring-boot-mongo-docker/mongo_var.env
+    networks:
+    - springappmongo
+    volumes:
+    - ebsvol
+volumes:
+  ebsvol:
+    driver: local
+
+networks:
+  springappmongo:
+    driver: bridge
