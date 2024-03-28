@@ -12,7 +12,7 @@ services:
     - mongo
 
   mongodb:
-    image: pattanimrankhan/mongo:latest
+    image: mongo:latest
     container_name: mongo
     env_file:
     - /tmp/mongo_var.env
