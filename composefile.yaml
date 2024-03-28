@@ -9,7 +9,7 @@ services:
     networks:
     - springappmongo
     depends_on:
-    - mongo
+    - mongodb
 
   mongodb:
     image: mongo:latest
