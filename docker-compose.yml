@@ -1,5 +1,3 @@
-version: '3.1'
-
 services:
   springboot:
     image: dockerhandson/spring-boot-mongo:latest
@@ -38,8 +36,8 @@ services:
     
 volumes:
   mongodb:
-    external: true
+    driver: local
     
 networks:
   springappnetwork:
-    external: true
+    driver: overlay
